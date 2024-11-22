@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private Text helloText;
     private ShapeManager shapeManager;
 
     private void Start()
     {
+        helloText.text = "Hello " + PlayerPrefs.GetString("PlayerName", "NONAME");
         shapeManager = GetComponent<ShapeManager>();
         shapeManager.InitializeShapes(); // ABSTRACTION
     }
